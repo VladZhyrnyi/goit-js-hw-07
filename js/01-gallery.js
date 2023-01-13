@@ -37,13 +37,14 @@ function onGalleryItemClick(event) {
   const modal = window.basicLightbox.create(`
     <img src="${event.target.dataset.source}" alt="${event.target.alt}">
 `, {
-    onShow: () => {window.addEventListener('keydown', onKeyEscapeClick)},
-    onClose: () => {window.removeEventListener('keydown', onKeyEscapeClick)},
+    onShow: () => {document.addEventListener('keydown', onKeyEscapeClick)},
+    onClose: () => {document.removeEventListener('keydown', onKeyEscapeClick)},
 });
 
   modal.show();
 
   function onKeyEscapeClick(event) {
+    event.stopPropagation();
     // console.log(event.code);
     if (event.code === "Escape") {
       modal.close();
