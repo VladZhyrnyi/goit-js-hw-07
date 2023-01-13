@@ -11,9 +11,8 @@ galleryRef.insertAdjacentHTML(
 galleryRef.addEventListener("click", onGalleryItemClick);
 
 function createGalleryMarkupFromArray(itemArray) {
-  return itemArray
-    .map((item) => {
-      return `
+  return itemArray.map((item) => {
+    return `
 <div class="gallery__item">
   <a class="gallery__link" href="${item.original}">
     <img
